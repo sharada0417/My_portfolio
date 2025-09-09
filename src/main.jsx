@@ -7,6 +7,7 @@ import RootLayout from "./Layout/root-layout.layout";
 import { About } from "./components/sections/About";
 import { Contact } from "./components/sections/Contact";
 import { Projects } from "./components/sections/Projects";
+import Tutorials from "./components/sections/Tutorials";
 
 
 createRoot(document.getElementById("root")).render(
@@ -18,7 +19,7 @@ createRoot(document.getElementById("root")).render(
          <Route path="/about" element={<About/>} />
          <Route path="/contact" element={<Contact />} />
          <Route path="/projects" element={<Projects/>} />
-        
+         <Route path="/tutorials" element={<Tutorials/>} />
       </Route>
       </Routes>
     </BrowserRouter>
