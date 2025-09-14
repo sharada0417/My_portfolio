@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { RevealOnScroll } from "../RevealOnScroll";
 import emailjs from "emailjs-com";
- 
+
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    reason: "",
     message: "",
   });
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
- 
+
     emailjs
       .sendForm(
         import.meta.env.VITE_SERVICE_ID,
@@ -19,75 +19,113 @@ export const Contact = () => {
         e.target,
         import.meta.env.VITE_PUBLIC_KEY
       )
-      .then((result) => {
+      .then(() => {
         alert("Message Sent!");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", reason: "", message: "" });
       })
-      .catch(() => alert("Oops! Something went wrong. Please try again."));
+      .catch(() =>
+        alert("Oops! Something went wrong. Please try again.")
+      );
   };
- 
+
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center py-20"
+      className="min-h-screen flex items-center justify-center py-20 bg-black"
     >
-      <RevealOnScroll>
-        <div className="px-4 w-full min-w-[300px] md:w-[500px] sm:w-2/3 p-6">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
-            Get In Touch
-          </h2>
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="relative">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                value={formData.name}
-                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                placeholder="Name..."
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-              />
-            </div>
-            <div className="relative">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                value={formData.email}
-                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                placeholder="example@gmail.com"
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-              />
-            </div>
-            <div className="relative">
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={5}
-                value={formData.message}
-                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                placeholder="Your Message..."
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+      <div className="px-4 w-full min-w-[300px] md:w-[500px] sm:w-2/3 p-6">
+        <h2 className="text-3xl font-bold mb-6 text-white text-center">
+          Get In Touch
+        </h2>
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          
+          {/* Name Field */}
+          <div className="relative">
+            <label htmlFor="name" className="text-white mb-1 block font-medium text-sm">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={formData.name}
+              className="w-full bg-black border-2 border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500"
+              placeholder="Enter your name"
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+            />
+          </div>
+
+          {/* Email Field */}
+          <div className="relative">
+            <label htmlFor="email" className="text-white mb-1 block font-medium text-sm">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={formData.email}
+              className="w-full bg-black border-2 border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500"
+              placeholder="example@gmail.com"
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+          </div>
+
+          {/* Reason Field */}
+          <div className="relative">
+            <label htmlFor="reason" className="text-white mb-1 block font-medium text-sm">
+              Reason for Contact
+            </label>
+            <select
+              id="reason"
+              name="reason"
+              required
+              value={formData.reason}
+              className="w-full bg-black border-2 border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500"
+              onChange={(e) =>
+                setFormData({ ...formData, reason: e.target.value })
+              }
             >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </RevealOnScroll>
+              <option value="">Select a reason</option>
+              <option value="Freelance">Freelance Project</option>
+              <option value="FullTime">Full-time Hiring</option>
+              <option value="SpecialProject">Special Project</option>
+            </select>
+          </div>
+
+          {/* Message Field */}
+          <div className="relative">
+            <label htmlFor="message" className="text-white mb-1 block font-medium text-sm">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={4}
+              value={formData.message}
+              className="w-full bg-black border-2 border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500"
+              placeholder="Your Message..."
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded text-sm font-medium transition hover:scale-105 hover:shadow-lg"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
     </section>
   );
 };
