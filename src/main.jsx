@@ -34,6 +34,7 @@ import Grapicdesign from "./pages/grapicdesign";
 import Design from "./components/sections/Design";
 
 import UIUX from "./pages/UIUX";
+import Blog from "./components/sections/Blog";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -44,6 +45,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/blog" element={<Blog />} />
 
           {/* Design */}
           <Route path="/design" element={<Design />}>

@@ -1,4 +1,5 @@
 import main from '@/assets/main.png';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export const Home = () => {
@@ -11,12 +12,40 @@ export const Home = () => {
                Hi, I'm Sharada
         </span>
         </h1>
-        <p className="text-gray-400 text-lg mb-6 max-w-lg mx-auto">
+        <p className="text-gray-400 text-lg mb-6 -mt-3 max-w-lg mx-auto">
           I’m a full-stack developer who loves crafting clean, scalable web
           applications. My goal is to build solutions that offer both exceptional
           performance and a delightful user experience.
         </p>
+            {/* Social Icons: centered horizontally */}
+        <div className="w-full flex justify-center mb-6">
+          <div className="flex space-x-4">
+            <a
+              href="https://www.linkedin.com/in/sharada417 "
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-blue-500 transition-colors"
+            >
+              <FaLinkedin size={24} />
+            </a>
+            <a
+              href="https://github.com/sharada0417 "
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              <FaGithub size={24} />
+            </a>
+          </div>
 
+        {/* Mobile Hamburger */}
+        <div
+          className="w-7 h-5 relative cursor-pointer z-40 md:hidden ml-4"
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          &#9776;
+        </div>
+      </div>
         <div className="flex justify-center space-x-4">
           <Link
             to="/projects"

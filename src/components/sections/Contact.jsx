@@ -23,25 +23,29 @@ export const Contact = () => {
         alert("Message Sent!");
         setFormData({ name: "", email: "", reason: "", message: "" });
       })
-      .catch(() =>
-        alert("Oops! Something went wrong. Please try again.")
-      );
+      .catch(() => alert("Oops! Something went wrong. Please try again."));
   };
+
+  const inputClasses =
+    "w-full bg-slate-900 text-white text-sm px-3 py-2 rounded-xl border border-white/20 hover:border-blue-400/40 focus:outline-none focus:ring-2 focus:ring-blue-500 transition";
 
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center py-20 bg-slate-900"
+      className="flex items-center justify-center min-h-screen py-16 bg-slate-900"
     >
-      <div className="px-4 w-full min-w-[300px] md:w-[500px] sm:w-2/3 p-6">
-        <h2 className="text-3xl font-bold mb-6 text-white text-center">
+      <div className="px-4 w-full max-w-2xl">
+        <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent text-center">
           Get In Touch
         </h2>
+
         <form className="space-y-4" onSubmit={handleSubmit}>
-          
           {/* Name Field */}
-          <div className="relative">
-            <label htmlFor="name" className="text-white mb-1 block font-medium text-sm">
+          <div>
+            <label
+              htmlFor="name"
+              className="text-white ml-3 mb-1 block font-medium text-sm"
+            >
               Name
             </label>
             <input
@@ -50,7 +54,7 @@ export const Contact = () => {
               name="name"
               required
               value={formData.name}
-              className="w-full bg-slate-900 border border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+              className={inputClasses}
               placeholder="Enter your name"
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
@@ -59,8 +63,11 @@ export const Contact = () => {
           </div>
 
           {/* Email Field */}
-          <div className="relative">
-            <label htmlFor="email" className="text-white mb-1 block font-medium text-sm">
+          <div>
+            <label
+              htmlFor="email"
+              className="text-white mb-1 block ml-3 font-medium text-sm"
+            >
               Email
             </label>
             <input
@@ -69,7 +76,7 @@ export const Contact = () => {
               name="email"
               required
               value={formData.email}
-              className="w-full bg-slate-900 border border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+              className={inputClasses}
               placeholder="example@gmail.com"
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
@@ -78,8 +85,11 @@ export const Contact = () => {
           </div>
 
           {/* Reason Field */}
-          <div className="relative">
-            <label htmlFor="reason" className="text-white mb-1 block font-medium text-sm">
+          <div>
+            <label
+              htmlFor="reason"
+              className="text-white mb-1 ml-3 block font-medium text-sm"
+            >
               Reason for Contact
             </label>
             <select
@@ -87,7 +97,7 @@ export const Contact = () => {
               name="reason"
               required
               value={formData.reason}
-              className="w-full bg-slate-900 border border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+              className={inputClasses}
               onChange={(e) =>
                 setFormData({ ...formData, reason: e.target.value })
               }
@@ -100,8 +110,11 @@ export const Contact = () => {
           </div>
 
           {/* Message Field */}
-          <div className="relative">
-            <label htmlFor="message" className="text-white mb-1 block font-medium text-sm">
+          <div>
+            <label
+              htmlFor="message"
+              className="text-white ml-3 mb-1 block font-medium text-sm"
+            >
               Message
             </label>
             <textarea
@@ -110,14 +123,14 @@ export const Contact = () => {
               required
               rows={4}
               value={formData.message}
-              className="w-full bg-slate-900 border border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+              className={inputClasses}
               placeholder="Your Message..."
               onChange={(e) =>
                 setFormData({ ...formData, message: e.target.value })
               }
             />
           </div>
-              
+
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 px-4 rounded text-sm font-medium transition hover:scale-105 hover:shadow-lg"
