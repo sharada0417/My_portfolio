@@ -31,7 +31,7 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center py-20 bg-black"
+      className="min-h-screen flex items-center justify-center py-20 bg-slate-900"
     >
       <div className="px-4 w-full min-w-[300px] md:w-[500px] sm:w-2/3 p-6">
         <h2 className="text-3xl font-bold mb-6 text-white text-center">
@@ -50,7 +50,7 @@ export const Contact = () => {
               name="name"
               required
               value={formData.name}
-              className="w-full bg-black border-2 border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500"
+              className="w-full bg-slate-900 border border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
               placeholder="Enter your name"
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
@@ -69,7 +69,7 @@ export const Contact = () => {
               name="email"
               required
               value={formData.email}
-              className="w-full bg-black border-2 border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500"
+              className="w-full bg-slate-900 border border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
               placeholder="example@gmail.com"
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
@@ -87,7 +87,7 @@ export const Contact = () => {
               name="reason"
               required
               value={formData.reason}
-              className="w-full bg-black border-2 border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500"
+              className="w-full bg-slate-900 border border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
               onChange={(e) =>
                 setFormData({ ...formData, reason: e.target.value })
               }
@@ -110,14 +110,14 @@ export const Contact = () => {
               required
               rows={4}
               value={formData.message}
-              className="w-full bg-black border-2 border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500"
+              className="w-full bg-slate-900 border border-white rounded px-3 py-2 text-white text-sm transition focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
               placeholder="Your Message..."
               onChange={(e) =>
                 setFormData({ ...formData, message: e.target.value })
               }
             />
           </div>
-
+              
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 px-4 rounded text-sm font-medium transition hover:scale-105 hover:shadow-lg"

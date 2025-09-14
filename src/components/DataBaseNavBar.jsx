@@ -30,7 +30,7 @@ const DataBaseNavBar = () => {
               }`
             }
           >
-            DataBase
+            MongoDB
           </NavLink>
         </nav>
       </div>

@@ -1,3 +1,4 @@
+
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
@@ -26,9 +27,13 @@ import Sql from "./pages/Sql";
 import MongoDB from "./pages/MongoDB";
 
 import MobileLayout from "./Layout/mobilelayout";
-import UIUXLayout from "./Layout/ui.ux.layout";
-import Figma from "./pages/Figma";
-import Axsure from "./pages/Axsure";
+
+
+import VideoEditing from "./pages/VideoEditing";
+import Grapicdesign from "./pages/grapicdesign";
+import Design from "./components/sections/Design";
+
+import UIUX from "./pages/UIUX";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -39,6 +44,14 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
+
+          {/* Design */}
+          <Route path="/design" element={<Design />}>
+            <Route index element={<Navigate to="graphic" replace />} />
+            <Route path="graphic" element={<Grapicdesign />} />
+            <Route path="video" element={<VideoEditing />} />
+            <Route path="desinuiux" element={<UIUX />} />
+          </Route>
 
           {/* Tutorials */}
           <Route path="/tutorials" element={<Tutorials />}>
@@ -71,20 +84,13 @@ createRoot(document.getElementById("root")).render(
               <Route path="reactnative" element={<ReactNative />} />
               <Route path="flutter" element={<Flutter />} />
             </Route>
-
-            {/* UI/UX */}
-            <Route path="uiux" element={<UIUXLayout />}>
-              <Route index element={<Navigate to="figma" replace />} />
-              <Route path="figma" element={<Figma />} />
-              <Route path="axure" element={<Axsure />} />
-            </Route>
           </Route>
 
-          {/* About page */}
+          {/* About */}
           <Route path="/about" element={<AboutUsLayout />}>
-            <Route index element={<About />} />
-            <Route path="work" element={<Work />} />
+            <Route index element={<Navigate to="education" replace />} />
             <Route path="education" element={<Education />} />
+            <Route path="work" element={<Work />} />
           </Route>
         </Route>
       </Routes>

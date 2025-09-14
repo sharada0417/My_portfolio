@@ -56,18 +56,6 @@ const VerticalNavBar = () => {
         DataBase
       </NavLink>
 
-      <NavLink
-        to="uiux"
-        className={({ isActive }) =>
-          `w-full px-4 py-2 mb-5 font-semibold rounded transition ${
-            isActive
-              ? "text-blue-500  border-l-4 border-blue-600"
-              : "text-gray-400 hover:text-blue-600"
-          }`
-        }
-      >
-        UIUX
-      </NavLink>
     </div>
   );
 };

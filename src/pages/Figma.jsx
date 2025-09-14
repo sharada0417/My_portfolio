@@ -32,7 +32,12 @@ const cardData = [
 ];
 
 const figma = () => {
-  const [collapsedCards, setCollapsedCards] = useState({});
+  const [collapsedCards, setCollapsedCards] = useState(
+      cardData.reduce((acc, card) => {
+        acc[card.id] = true;
+        return acc;
+      }, {})
+    );
 
   const toggleCollapse = (id) => {
     setCollapsedCards((prev) => ({
@@ -49,11 +54,11 @@ const figma = () => {
         return (
           <div
             key={card.id}
-            className="bg-black text-white w-11/12 rounded-xl shadow-lg p-4 flex flex-col justify-between"
+            className="bg-slate-900 text-white w-11/12 rounded-xl shadow-lg p-4 flex flex-col justify-between"
           >
             {/* Row 1: Title + Minus/Plus */}
             <div className="flex justify-between items-center">
-              <h1 className="text-blue-800 text-xl font-bold mt-1">{card.title}</h1>
+              <h1 className="text-blue-300  font-mono mt-1">{card.title}</h1>
               <button
                 className="text-white text-3xl font-bold"
                 onClick={() => toggleCollapse(card.id)}
