@@ -8,7 +8,6 @@ import RootLayout from "./Layout/root-layout.layout";
 import { Contact } from "./components/sections/Contact";
 import { Projects } from "./components/sections/Projects";
 import Tutorials from "./components/sections/Tutorials";
-import About from "./components/sections/About";
 import AboutUsLayout from "./Layout/about-layout.layout";
 import Work from "./pages/Work";
 import Education from "./pages/Education";
@@ -29,11 +28,11 @@ import MongoDB from "./pages/MongoDB";
 import MobileLayout from "./Layout/mobilelayout";
 
 
-import VideoEditing from "./pages/VideoEditing";
-import Grapicdesign from "./pages/grapicdesign";
-import Design from "./components/sections/Design";
+// import VideoEditing from "./pages/VideoEditing";
+// import Grapicdesign from "./pages/grapicdesign";
+// import Design from "./components/sections/Design";
 
-import UIUX from "./pages/UIUX";
+// import UIUX from "./pages/UIUX";
 import Blog from "./components/sections/Blog";
 
 createRoot(document.getElementById("root")).render(
@@ -48,12 +47,12 @@ createRoot(document.getElementById("root")).render(
           <Route path="/blog" element={<Blog />} />
 
           {/* Design */}
-          <Route path="/design" element={<Design />}>
+          {/* <Route path="/design" element={<Design />}>
             <Route index element={<Navigate to="graphic" replace />} />
             <Route path="graphic" element={<Grapicdesign />} />
             <Route path="video" element={<VideoEditing />} />
             <Route path="desinuiux" element={<UIUX />} />
-          </Route>
+          </Route> */}
 
           {/* Tutorials */}
           <Route path="/tutorials" element={<Tutorials />}>
